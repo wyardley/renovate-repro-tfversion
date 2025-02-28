@@ -6,16 +6,6 @@
   "customManagers": [
     {
       "customType": "jsonata",
-      "fileFormat": "yaml",
-      "fileMatch": ["(^|/)\\.github/workflows/.+\\.ya?ml$"],
-      "matchStrings": [
-        "jobs.*.steps[uses ~> /^terraform-linters\\/setup-tflint@/].with.{\"currentValue\": tflint_version}"
-      ],
-      "depNameTemplate": "terraform-linters/tflint",
-      "datasourceTemplate": "github-tags"
-    },
-    {
-      "customType": "jsonata",
       "extractVersionTemplate": "^v?(?<version>.*)$",
       "fileFormat": "yaml",
       "fileMatch": ["(^|/)\\.github/workflows/.+\\.ya?ml$"],
@@ -23,17 +13,6 @@
         "jobs.*.steps[uses ~> /^hashicorp\\/setup-terraform@/].with.{\"currentValue\": terraform_version}"
       ],
       "depNameTemplate": "hashicorp/terraform",
-      "datasourceTemplate": "github-releases"
-    },
-    {
-      "customType": "jsonata",
-      "extractVersionTemplate": "^v?(?<version>.*)$",
-      "fileFormat": "yaml",
-      "fileMatch": ["(^|/)\\.github/workflows/.+\\.ya?ml$"],
-      "matchStrings": [
-        "jobs.*.steps[uses ~> /^opentofu\\/setup-opentofu@/].with.{\"currentValue\": tofu_version}"
-      ],
-      "depNameTemplate": "opentofu/opentofu",
       "datasourceTemplate": "github-releases"
     }
   ],
