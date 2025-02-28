@@ -1,0 +1,29 @@
+name: Terraform Test for Repro Repo
+
+on: [pull_request]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      TF_IN_AUTOMATION: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9"
+      # OpenTofu too, because why not
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: "1.8"
+      - uses: terraform-linters/setup-tflint@v4
+        name: Setup TFLint
+        with:
+          tflint_version: v0.55.0
+      - name: tflint init
+        run: tflint --config ${{ github.workspace }}/.tflint.hcl  --init
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
