@@ -19,7 +19,7 @@ jobs:
       - uses: terraform-linters/setup-tflint@v4
         name: Setup TFLint
         with:
-          tflint_version: v0.55.0
+          tflint_version: v0.55.1
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
