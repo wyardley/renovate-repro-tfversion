@@ -15,5 +15,12 @@
       "depNameTemplate": "hashicorp/terraform",
       "datasourceTemplate": "github-releases"
     }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["github-releases"],
+      "matchPackageNames": ["hashicorp/terraform"],
+      "versioning": "hashicorp"
+    }
   ]
 }
