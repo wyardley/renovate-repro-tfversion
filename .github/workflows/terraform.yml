@@ -15,7 +15,7 @@ jobs:
       # OpenTofu too, because why not
       - uses: opentofu/setup-opentofu@v1
         with:
-          tofu_version: "1.8"
+          tofu_version: "1.9.0"
       - uses: terraform-linters/setup-tflint@v4
         name: Setup TFLint
         with:
