@@ -15,15 +15,5 @@
       "depNameTemplate": "hashicorp/terraform",
       "datasourceTemplate": "github-releases"
     }
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": [
-        "github-tags",
-        "terraform-module",
-        "terraform-provider"
-      ],
-      "commitMessageTopic": "{{depName}}"
-    }
   ]
 }
