@@ -20,10 +20,6 @@ jobs:
         name: Setup TFLint
         with:
           tflint_version: v0.55.0
-      - name: tflint init
-        run: tflint --config ${{ github.workspace }}/.tflint.hcl  --init
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
