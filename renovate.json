@@ -13,14 +13,8 @@
         "jobs.*.steps[uses ~> /^hashicorp\\/setup-terraform@/].with.{\"currentValue\": terraform_version}"
       ],
       "depNameTemplate": "hashicorp/terraform",
-      "datasourceTemplate": "github-releases"
-    }
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["hashicorp/terraform"],
-      "versioning": "hashicorp"
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "hashicorp"
     }
   ]
 }
